@@ -2,13 +2,16 @@ import React from 'react';
 import { render } from 'react-dom';
 import './index.css';
 
+let id = 0;
+const getID = () => id += 1;
+
 const Recipe = ({ recipe }) => (
-  <li>{ recipe }</li>
+  <li>{ recipe.title }</li>
 );
 
 const Recipes = ({ recipes }) => (
   <ul>
-    { recipes.map(recipe => <Recipe key={ recipe } recipe={ recipe } /> )}
+    { recipes.map(recipe => <Recipe key={ recipe.id } recipe={ recipe } /> )}
   </ul>
 );
 
@@ -36,14 +39,22 @@ class App extends React.Component {
     super();
 
     this.state = {
-      recipes: ['Waffles', 'Omelette']
+      recipes: [
+        { id: getID(), title: 'Waffles' },
+        { id: getID(), title: 'Omelette' }
+      ]
     };
 
     this.addRecipe = this.addRecipe.bind(this);
   }
 
   addRecipe(title) {
-    const newRecipes = this.state.recipes.concat(title);
+    const newRecipe = {
+      id: getID(),
+      title
+    };
+
+    const newRecipes = this.state.recipes.concat(newRecipe);
 
     this.setState({ recipes: newRecipes });
   }
