@@ -19,4 +19,8 @@ class AddRecipe extends React.Component {
   }
 }
 
+AddRecipe.propTypes = {
+  addRecipe: React.PropTypes.func.isRequired
+};
+
 export default AddRecipe;
