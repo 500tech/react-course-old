@@ -2,37 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import './index.css';
 
+import Recipes from './components/Recipes';
+import AddRecipe from './components/AddRecipe';
+
 let id = 0;
 const getID = () => id += 1;
-
-const Recipe = ({ recipe }) => (
-  <li>{ recipe.title }</li>
-);
-
-const Recipes = ({ recipes }) => (
-  <ul>
-    { recipes.map(recipe => <Recipe key={ recipe.id } recipe={ recipe } /> )}
-  </ul>
-);
-
-class AddRecipe extends React.Component {
-  onSubmit(e) {
-    e.preventDefault();
-
-    this.props.addRecipe(this.title.value);
-
-    this.title.value = '';
-  }
-
-  render() {
-    return (
-      <form onSubmit={ this.onSubmit.bind(this) }>
-        <input ref={ e => this.title = e } type="text"/>
-        <button>Add</button>
-      </form>
-    );
-  }
-}
 
 class App extends React.Component {
   constructor() {
@@ -72,6 +46,6 @@ class App extends React.Component {
 }
 
 render(
-  React.createElement(App),
+  <App />,
   document.getElementById('root')
 );
