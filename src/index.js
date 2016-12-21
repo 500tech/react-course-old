@@ -1,12 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import './index.css';
+import { getID } from './lib/ids';
 
 import Recipes from './components/Recipes';
 import AddRecipe from './components/AddRecipe';
-
-let id = 0;
-const getID = () => id += 1;
 
 class App extends React.Component {
   constructor() {
@@ -39,7 +37,6 @@ class App extends React.Component {
         <h1>Recipes:</h1>
         <Recipes recipes={ this.state.recipes }/>
         <AddRecipe addRecipe={ this.addRecipe } />
-
       </div>
     );
   }
