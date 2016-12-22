@@ -18,6 +18,7 @@ class App extends React.Component {
     };
 
     this.addRecipe = this.addRecipe.bind(this);
+    this.toggleFavorite = this.toggleFavorite.bind(this);
   }
 
   addRecipe(title) {
@@ -32,11 +33,21 @@ class App extends React.Component {
     this.setState({ recipes: newRecipes });
   }
 
+  toggleFavorite(id) {
+    const newRecipes = this.state.recipes.map(recipe =>
+      recipe.id !== id
+        ? recipe
+        : { ...recipe, favorite: !recipe.favorite }
+    );
+
+    this.setState({ recipes: newRecipes });
+  }
+
   render() {
     return (
       <div>
         <h1>Recipes:</h1>
-        <Recipes recipes={ this.state.recipes }/>
+        <Recipes recipes={ this.state.recipes } toggleFavorite={ this.toggleFavorite }/>
         <AddRecipe addRecipe={ this.addRecipe } />
       </div>
     );

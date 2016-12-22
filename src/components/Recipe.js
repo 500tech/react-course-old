@@ -1,12 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Recipe = ({ recipe }) => (
-  <li className={ classNames({ 'favorite': recipe.favorite }) }>{ recipe.title }</li>
+const Recipe = ({ recipe, toggleFavorite }) => (
+  <li className={ classNames({ 'favorite': recipe.favorite }) }
+      onClick={ () => toggleFavorite(recipe.id) } >
+    { recipe.title }
+    </li>
 );
 
 Recipe.propTypes = {
-  recipe: React.PropTypes.object.isRequired
+  recipe: React.PropTypes.object.isRequired,
+  toggleFavorite: React.PropTypes.func.isRequired
 };
 
 export default Recipe;
