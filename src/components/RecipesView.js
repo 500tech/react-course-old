@@ -1,8 +1,7 @@
 import React from 'react';
 import Recipes from './Recipes';
-import AddRecipe from './AddRecipe';
 
-const RecipesView = () => (
+const RecipesView = ({ children }) => (
   <div className="main">
 
     <div className="pane">
@@ -10,7 +9,7 @@ const RecipesView = () => (
     </div>
 
     <div className="pane">
-      <AddRecipe title="Hello" />
+      { children }
     </div>
 
   </div>

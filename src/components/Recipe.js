@@ -1,10 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router';
 
 const Recipe = ({ recipe, toggleFavorite }) => (
-  <li className={ classNames('recipe', { 'favorite': recipe.favorite }) }
-      onClick={ () => toggleFavorite(recipe.id) } >
-    { recipe.title }
+  <li className={ recipe.favorite && 'favorite' }>
+    <Link className="recipe" to={ `/${ recipe.id }`}>
+      { recipe.title }
+    </Link>
   </li>
 );
 
