@@ -11,8 +11,11 @@ Counter.propTypes = {
 
 // Connection code
 
-const mapStateToProps = (state) => ({
-  number: state.recipes.length
+const mapStateToProps = (state, ownProps) => ({
+  number: state
+    .recipes
+    .filter(recipe => recipe.favorite === ownProps.favorite)
+    .length
 });
 
 export default connect(mapStateToProps)(Counter);

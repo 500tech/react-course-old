@@ -3,7 +3,7 @@ import Counter from './Counter';
 
 const Header = () => (
   <header>
-    <h1>Recipes Book (<Counter />)</h1>
+    <h1>Recipes Book (<Counter favorite={ true } />)</h1>
   </header>
 );
 

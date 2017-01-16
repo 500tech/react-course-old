@@ -10,7 +10,7 @@ const RecipesView = () => (
     </div>
 
     <div className="pane">
-      <AddRecipe />
+      <AddRecipe title="Hello" />
     </div>
 
   </div>

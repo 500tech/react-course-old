@@ -3,7 +3,7 @@ import Counter from './Counter';
 
 const Footer = () => (
   <footer>
-    The Recipes Book Project (<Counter />)
+    The Recipes Book Project (<Counter favorite={ false } />)
   </footer>
 );
 
