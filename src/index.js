@@ -4,7 +4,7 @@ import './index.css';
 import { getID } from './lib/ids';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
+import * as actions from './consts/action-types';
 import RecipesView from './components/RecipesView';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -14,7 +14,7 @@ const reducer = (state, action) => {
   console.log("Got Action " + action.type, action);
 
   switch (action.type) {
-    case 'ADD_RECIPE':
+    case actions.ADD_RECIPE:
       const newRecipe = {
         id: getID(),
         title: action.title,
@@ -27,7 +27,7 @@ const reducer = (state, action) => {
         recipes: newRecipes
       });
 
-    case 'TOGGLE':
+    case actions.TOGGLE_FAVORITE:
       const updateRecipes = state.recipes.map(recipe =>
         recipe.id !== action.id
           ? recipe
