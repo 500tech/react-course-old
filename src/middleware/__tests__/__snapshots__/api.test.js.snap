@@ -1,0 +1,23 @@
+exports[`api middleware error should dispatch error 1`] = `
+Array [
+  Object {
+    "error": Response {
+      "_bodyInit": "{}",
+      "_bodyText": "{}",
+      "headers": Headers {
+        "map": Object {
+          "content-type": Array [
+            "application/json",
+          ],
+        },
+      },
+      "ok": false,
+      "status": 404,
+      "statusText": "Not found",
+      "type": "default",
+      "url": "",
+    },
+    "type": "API_ERROR",
+  },
+]
+`;

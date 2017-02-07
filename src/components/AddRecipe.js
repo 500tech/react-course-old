@@ -2,12 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addRecipe } from '../actions/recipes';
 import { browserHistory } from 'react-router';
+import { getID } from '../lib/ids';
 
 class AddRecipe extends React.Component {
   onSubmit(e) {
+    const id = getID();
+
     e.preventDefault();
 
     this.props.addRecipe(
+      id,
       this.title.value,
       this.description.value
     );
@@ -15,7 +19,7 @@ class AddRecipe extends React.Component {
     this.title.value = '';
     this.description.value = '';
 
-    browserHistory.push('/');
+    browserHistory.push(`/${ id }`);
   }
 
   render() {
@@ -32,5 +36,6 @@ class AddRecipe extends React.Component {
 AddRecipe.propTypes = {
   addRecipe: React.PropTypes.func.isRequired
 };
+
 
 export default connect(null, { addRecipe })(AddRecipe);

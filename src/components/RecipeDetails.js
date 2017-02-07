@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../actions/recipes';
 
-const RecipeDetails = ({ recipe, toggle }) => (
+export const RecipeDetails = ({ recipe, toggle }) => (
   <div className="details">
     <h3>{ recipe.title }</h3>
 
