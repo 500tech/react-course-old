@@ -1,7 +1,8 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers/root';
+import logMiddleware from './middleware/log';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logMiddleware));
 
 window.store = store;
 
