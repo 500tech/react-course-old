@@ -1,32 +1,38 @@
 import React from 'react';
 import Recipe from './Recipe';
 import { connect } from 'react-redux';
-import { toggleFavorite } from '../actions/recipes';
+import { toggleFavorite, fetchRecipes } from '../actions/recipes';
 import { Link } from 'react-router';
 
-const Recipes = ({ recipes, toggleFavorite }) => (
-  <ul className="recipes">
-    { recipes.map(recipe =>
-      <Recipe key={ recipe.id }
-              recipe={ recipe }
-              toggleFavorite={ toggleFavorite } /> )}
+class Recipes extends React.Component {
+  componentDidMount() {
+    this.props.fetchRecipes();
+  }
 
-    <Link to="/add" className="add">Add Recipe</Link>
-  </ul>
-);
+  render() {
+    const { recipes, toggleFavorite } = this.props;
+
+    return (
+      <ul className="recipes">
+        { recipes.map(recipe =>
+          <Recipe key={ recipe.id }
+                  recipe={ recipe }
+                  toggleFavorite={ toggleFavorite }/>)}
+
+        <Link to="/add" className="add">Add Recipe</Link>
+      </ul>
+    );
+  }
+}
 
 Recipes.propTypes = {
   recipes: React.PropTypes.array.isRequired,
-  toggleFavorite: React.PropTypes.func.isRequired
+  toggleFavorite: React.PropTypes.func.isRequired,
+  fetchRecipes: React.PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => {
-  return {
-    recipes: state.recipes
-  }
-};
+const mapStateToProps = (state) => ({
+  recipes: state.recipes
+});
 
-const ConnectedRecipes = connect(
-  mapStateToProps, { toggleFavorite })(Recipes);
-
-export default ConnectedRecipes;
+export default connect(mapStateToProps, { toggleFavorite, fetchRecipes })(Recipes);

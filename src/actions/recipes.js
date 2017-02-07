@@ -11,3 +11,11 @@ export const toggleFavorite = (id) => ({
   type: actions.TOGGLE_FAVORITE,
   id
 });
+
+export const fetchRecipes = () => ({
+  type: actions.API,
+  payload: {
+    url: 'recipes.json',
+    success: actions.SET_RECIPES
+  }
+});
