@@ -3,12 +3,13 @@ import classNames from 'classnames';
 import { Link } from 'react-router';
 
 const Recipe = ({ recipe, toggleFavorite }) => (
-  <li className={ recipe.favorite && 'favorite' }>
+  <li className={ classNames({ 'favorite': recipe.favorite }) }>
     <Link className="recipe" to={ `/${ recipe.id }`}>
       { recipe.title }
     </Link>
   </li>
 );
+
 
 Recipe.propTypes = {
   recipe: React.PropTypes.object.isRequired,
