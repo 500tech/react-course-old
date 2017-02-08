@@ -1,32 +1,35 @@
+# 500Tech - React & Redux Course
 
-# ReactJS & Redux Course - 500Tech
+## About
 
-## Overview
+The complete React & Redux course by [500Tech](http://500tech.com)
 
-This repository contains multiple branches of a progressively built application using ReactJS & Redux.
-All the materials are passed during the F2F class sessions.
-## Course
-Interested in joining the course or having it done in your company? Contact us at [info@500tech.com](mailto:info@500tech.com)
+More about the course: [http://react.courses.500tech.com/](http://react.courses.500tech.com/)
 
-## 500Tech
-500Tech is Israel's leading ReactJS and AngularJS consultancy, specializing the Frontend projects, teaching and training.
+## Installation instructions
 
-### About us
+### NodeJS
 
-* [500Tech.com](http://500tech.co)
+* Installing node - [https://nodejs.org/en/](https://nodejs.org/en/)
 
-### AngularJS
+### Git
 
-* [Angular UP conference](http://angular-up.com/)
-* [AngularJS Israel Meetup](http://www.meetup.com/AngularJS-IL/)
-* [Angular 2 Course](http://angular2.courses.500tech.com/)
+* Windows - [https://git-scm.com/download/win](https://git-scm.com/download/win)
+* Mac - Already installed
+* Linux - Already installed
 
-### ReactJS
+### Code Editor
 
-* [React Next conference](http://react-next.com/)
-* [ReactJS Israel Meetup](http://www.meetup.com/ReactJS-Israel/)
-* [ReactJS Course](http://react.courses.500tech.com/)
+* VS Code - [https://code.visualstudio.com/](https://code.visualstudio.com/)
+* Atom - [https://atom.io/](https://atom.io/)
+* WebStorm - [https://www.jetbrains.com/webstorm/](https://www.jetbrains.com/webstorm/)
 
+### Base project
 
-## License
-This code is under the MIT license
+    git clone git@github.com:500tech/react-course.git
+    cd react-course
+    npm install
+    npm start
+
+Open chrome and go to: [http://localhost:8000](http://localhost:8000).
+You should see **"Hello!"**
