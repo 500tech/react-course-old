@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Footer from './components/Footer';
+import TodoView from './components/TodoView';
 
-function App() {
-  return React.createElement('h1', null, 'Hello!');
-}
+const App = () => (
+  <div>
+    <TodoView />
+    <Footer />
+  </div>
+);
 
 ReactDOM.render(
   React.createElement(App),
   document.getElementById('root')
 );
+
+
