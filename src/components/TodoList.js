@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import Todo from './Todo';
+import { connect } from 'react-redux';
+import { toggleTodo } from '../actions/todos';
 
 const TodoList = ({ todos, toggle }) => (
   <ul className="todo-list">
@@ -19,4 +21,10 @@ TodoList.propTypes = {
   toggle: PropTypes.func.isRequired
 };
 
-export default TodoList;
+const mapStateToProps = state => ({
+  todos: state.todos
+});
+
+export default connect(mapStateToProps, {
+  toggle: toggleTodo
+})(TodoList);

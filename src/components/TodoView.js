@@ -14,11 +14,7 @@ class TodoView extends React.Component {
       todos: [
         {
           id: getID(),
-          title: 'Divide to components',
-          completed: true },
-        {
-          id: getID(),
-          title: 'Add state',
+          title: 'Implement the Reducer',
           completed: false
         }
       ]
@@ -58,9 +54,7 @@ class TodoView extends React.Component {
 
         <section className="main">
           <input className="toggle-all" type="checkbox"/>
-          <TodoList todos={ this.state.todos }
-                    toggle={ this.toggle }
-          />
+          <TodoList />
         </section>
 
         <InnerFooter />
