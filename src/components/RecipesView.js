@@ -45,7 +45,7 @@ class RecipesView extends React.Component {
       <div className="main">
 
         <div className="pane">
-          <Recipes recipes={ this.state.recipes } toggleFavorite={ this.toggleFavorite }/>
+          <Recipes />
         </div>
 
         <div className="pane">
