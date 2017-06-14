@@ -15,8 +15,23 @@ const reducer = (state, action) => {
   console.log('ACTION: ' + action.type, action);
 
   switch (action.type) {
-    case 'SOMETHING':
-      return state;
+    case 'ADD_TODO':
+      const newTodo = {
+        title: action.title,
+        completed: false
+      };
+
+      return Object.assign({}, state, {
+        todos: state.todos.concat(newTodo)
+      });
+
+    case 'TOGGLE':
+      return Object.assign({}, state, {
+        todos: state.todos.map(todo => todo.title !== action.title
+          ? todo
+          : Object.assign({}, todo, { completed: !todo.completed })
+        )
+      });
 
     default:
       return state;
