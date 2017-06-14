@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class Header extends React.Component {
   handleSubmit(event) {
@@ -12,7 +13,7 @@ class Header extends React.Component {
   render() {
     return (
       <header className="header">
-        <h1>todos</h1>
+        <h1>todos { this.props.name }</h1>
         <form onSubmit={ this.handleSubmit.bind(this) }>
           <input className="new-todo"
                  placeholder="What needs to be done?"
@@ -26,7 +27,16 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
+  name: React.PropTypes.string.isRequired,
   cb: React.PropTypes.func.isRequired
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  name: state.user.name
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  cb: (title) => dispatch({ type: 'ADD_TODO', title })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

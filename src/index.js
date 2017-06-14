@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import MainView from './components/MainView';
 import Footer from './components/Footer';
+import { Provider } from 'react-redux';
+import store from './store';
 
 class App extends React.Component {
   constructor() {
@@ -10,9 +12,7 @@ class App extends React.Component {
 
     this.state = {
       todos: [
-        { title: 'Break into components', completed: true },
-        { title: 'Do more work', completed: false },
-        { title: 'Finish', completed: false }
+
       ]
     }
   }
@@ -53,6 +53,8 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  React.createElement(App),
+  <Provider store={ store }>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
