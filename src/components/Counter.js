@@ -6,13 +6,13 @@ const Counter = ({ number }) => (
 );
 
 Counter.propTypes = {
-  number: React.PropTypes.number
+  number: React.PropTypes.string
 };
 
 // Connection code
 
 const mapStateToProps = (state) => ({
-  number: state.recipes.length
+  number: state.user.name
 });
 
 export default connect(mapStateToProps)(Counter);
